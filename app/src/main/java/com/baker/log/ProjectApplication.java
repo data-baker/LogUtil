@@ -10,7 +10,7 @@ public class ProjectApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        LogConstants.getInstance().setLogConfig("urlString","signatureString",true);
+        LogConstants.getInstance().setLogConfig("urlString","signatureString",false);
         LogUtil.openLogUtilStream(this);
         ExceptionHandlerUtil.getInstance().init(this);
     }
