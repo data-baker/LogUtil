@@ -20,14 +20,17 @@ public class LogConstants {
 
     private String logUrl;
     private String signatureString;
+    private boolean isPrintLineMessage = true;
+    private boolean isUpload = false;
 
     private boolean isDebug = true;
     private String debugFilePath = "";
-    private boolean isPrintLineMessage = true;
+
+
     private String businessType = "bbxnr-sdk-android";
     private String appVersion = "1.1.0";
     private String appName = "标贝虚拟人";
-    private boolean isUpload = false;
+
 
     public boolean isUpload() {
         return isUpload;
@@ -55,6 +58,25 @@ public class LogConstants {
         return signatureString;
     }
 
+    public void setLogConfig(String urlString, String signatureString, boolean isUpload) {
+        this.logUrl = urlString;
+        this.signatureString = signatureString;
+        this.isUpload = isUpload;
+    }
+
+    public void setLogConfig(String urlString, String signatureString, boolean isUpload, boolean isPrintLineMessage) {
+        this.logUrl = urlString;
+        this.signatureString = signatureString;
+        this.isUpload = isUpload;
+        this.isPrintLineMessage = isPrintLineMessage;
+    }
+
+    public void setUploadConfig(String businessType, String appVersion, String appName) {
+        this.businessType = businessType;
+        this.appVersion = appVersion;
+        this.appName = appName;
+    }
+
     public void setSignatureString(String signatureString) {
         this.signatureString = signatureString;
     }
@@ -63,36 +85,26 @@ public class LogConstants {
         return appVersion;
     }
 
-    public void setAppVersion(String appVersion) {
-        this.appVersion = appVersion;
-    }
-
     public String getAppName() {
         return appName;
-    }
-
-    public void setAppName(String appName) {
-        this.appName = appName;
     }
 
     public String getBusinessType() {
         return businessType;
     }
 
-    public void setBusinessType(String businessType) {
-        this.businessType = businessType;
-    }
 
     public boolean isIsPrintLineMessage() {
         return isPrintLineMessage;
     }
 
-    public void setPrintLineMessage(boolean isPrintLine) {
-        isPrintLineMessage = isPrintLine;
+
+    public boolean isDebug() {
+        return isDebug;
     }
 
-    public boolean isIsDebug() {
-        return isDebug;
+    public void setDebug(boolean debug) {
+        isDebug = debug;
     }
 
     public void setIsDebug(boolean debug) {

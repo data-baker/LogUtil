@@ -24,7 +24,7 @@ public class WriteLog {
 
 
     public static void openStream(Context context, String filePath) {
-        if (!LogConstants.getInstance().isIsDebug() || context == null) {
+        if (!LogConstants.getInstance().isDebug() || context == null) {
             return;
         }
         try {
@@ -83,7 +83,7 @@ public class WriteLog {
 
 
     public static void writeLogs(String logString) {
-        if (!LogConstants.getInstance().isIsDebug()) {
+        if (!LogConstants.getInstance().isDebug()) {
             return;
         }
         if (stringBuilder == null) return;
@@ -116,7 +116,7 @@ public class WriteLog {
 
     public static void closeStream() {
         try {
-            if (!LogConstants.getInstance().isIsDebug() || fos2 == null) {
+            if (!LogConstants.getInstance().isDebug() || fos2 == null) {
                 return;
             }
             // 释放资源

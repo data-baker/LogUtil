@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace 'com.baker.log.util'
-    compileSdk 32
+    compileSdk 28
 
     defaultConfig {
         minSdk 23
-        targetSdk 32
+        targetSdk 28
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
