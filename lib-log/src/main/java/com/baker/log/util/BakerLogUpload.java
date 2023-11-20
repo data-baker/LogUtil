@@ -1,6 +1,7 @@
 package com.baker.log.util;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -106,6 +107,8 @@ public class BakerLogUpload {
 
 
     private void upload(List<String> logs, String level) {
+
+        if (!LogConstants.getInstance().isUpload()) return;
         if (mContext == null) return;
         getRequestJsonBody().setContentList(logs);
         getRequestJsonBody().setTime(String.valueOf(System.currentTimeMillis()));

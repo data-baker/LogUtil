@@ -27,6 +27,15 @@ public class LogConstants {
     private String businessType = "bbxnr-sdk-android";
     private String appVersion = "1.1.0";
     private String appName = "标贝虚拟人";
+    private boolean isUpload = false;
+
+    public boolean isUpload() {
+        return isUpload;
+    }
+
+    public void setUpload(boolean upload) {
+        isUpload = upload;
+    }
 
     public String getLogUrl() {
         if (logUrl == null) {
