@@ -25,19 +25,30 @@
 3. Completing initialization in Application
 
 ```java
- LogConstants.getInstance().setSignatureString("  ");
- LogConstants.getInstance().setLogUrl(" ");
- LogUtil.openLogUtilStream(this);
- ExceptionHandlerUtil.getInstance().init(this);
+        LogConstants.getInstance().setSignatureString("  ");
+        LogConstants.getInstance().setLogUrl(" ");
+        LogConstants.getInstance().setUpload(true);
+        LogUtil.openLogUtilStream(this);
+        ExceptionHandlerUtil.getInstance().init(this);
+
 ```
+
+or
+
+```java
+        LogConstants.getInstance().setLogConfig("urlString","signatureString",true);
+        LogUtil.openLogUtilStream(this);
+        ExceptionHandlerUtil.getInstance().init(this);
+```
+
 4. use
 
 ```java
-   LogUtil.v("测试 配置");
-   LogUtil.d("测试 配置");
-   LogUtil.w("测试 配置");
-   LogUtil.e("测试 配置");
-   LogUtil.error("测试 配置");
+        LogUtil.v("测试 配置");
+        LogUtil.d("测试 配置");
+        LogUtil.w("测试 配置");
+        LogUtil.e("测试 配置");
+        LogUtil.error("测试 配置");
 ```
 
 
