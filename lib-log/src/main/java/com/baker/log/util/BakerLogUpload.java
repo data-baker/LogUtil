@@ -79,7 +79,7 @@ public class BakerLogUpload {
         String authorizationString = builder.toString();
         return HMACSHA256Utils
                 .sha256_HMAC(authorizationString.substring(0, authorizationString.length() - 1),
-                        "17sMTZ4tzrGwf11NloSWCy1HUip9Xhmgu2O17RILa0ceIkP1qxVvFT1bBdJKQo");
+                        LogConstants.getInstance().getSignatureString());
 
     }
 
@@ -114,9 +114,7 @@ public class BakerLogUpload {
         String paramJson = GsonUtils.toJson(getRequestJsonBody());
 
         RequestBody body = RequestBody.create(contentType, paramJson);
-
-        String url = "https://openapitest.data-baker.com/logapp/log/uploadLog";
-        Request request = new Request.Builder().addHeader("Authorization", getAuthorizationString()).url(url).post(body).build();
+        Request request = new Request.Builder().addHeader("Authorization", getAuthorizationString()).url(LogConstants.getInstance().getLogUrl()).post(body).build();
 
         BakerOkHttpClient.getInstance().getHttpClient().newCall(request).enqueue(new Callback() {
             @Override

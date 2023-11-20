@@ -18,12 +18,37 @@ public class LogConstants {
         return instance;
     }
 
+    private String logUrl;
+    private String signatureString;
+
     private boolean isDebug = true;
     private String debugFilePath = "";
     private boolean isPrintLineMessage = true;
     private String businessType = "bbxnr-sdk-android";
     private String appVersion = "1.1.0";
     private String appName = "标贝虚拟人";
+
+    public String getLogUrl() {
+        if (logUrl == null) {
+            throw new NullPointerException("log :logUrl==null");
+        }
+        return logUrl;
+    }
+
+    public void setLogUrl(String logUrl) {
+        this.logUrl = logUrl;
+    }
+
+    public String getSignatureString() {
+        if (signatureString == null) {
+            throw new NullPointerException("log :signatureString==null");
+        }
+        return signatureString;
+    }
+
+    public void setSignatureString(String signatureString) {
+        this.signatureString = signatureString;
+    }
 
     public String getAppVersion() {
         return appVersion;
