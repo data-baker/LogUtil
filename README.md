@@ -16,7 +16,7 @@
 
  ```groovy
  dependencies {
-    implementation 'com.github.data-baker:LogUtil:1.0.0'
+    implementation 'com.github.data-baker:LogUtil:1.0.3'
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
 }
