@@ -46,14 +46,14 @@ public class BakerLogUpload {
 
     private BaseInfo getBaseInfo() {
         if (baseInfo == null) {
-            baseInfo = new BaseInfo(DeviceIdUtil.getManufacturer() + "-" + DeviceIdUtil.getModel(), LogConstants.getAppVersion(), LogConstants.getAppName(), Locale.getDefault().getLanguage(), DeviceIdUtil.getSDKVersionName() + "-" + DeviceIdUtil.getSDKVersionCode());
+            baseInfo = new BaseInfo(DeviceIdUtil.getManufacturer() + "-" + DeviceIdUtil.getModel(), LogConstants.getInstance().getAppVersion(), LogConstants.getInstance().getAppName(), Locale.getDefault().getLanguage(), DeviceIdUtil.getSDKVersionName() + "-" + DeviceIdUtil.getSDKVersionCode());
         }
         return baseInfo;
     }
 
     private RequestJsonBody getRequestJsonBody() {
         if (requestJsonBody == null) {
-            requestJsonBody = new RequestJsonBody(getBaseInfo(), "info", LogConstants.getBusinessType());
+            requestJsonBody = new RequestJsonBody(getBaseInfo(), "info", LogConstants.getInstance().getBusinessType());
         }
         return requestJsonBody;
     }

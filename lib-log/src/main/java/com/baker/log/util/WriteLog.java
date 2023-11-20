@@ -24,7 +24,7 @@ public class WriteLog {
 
 
     public static void openStream(Context context, String filePath) {
-        if (!LogConstants.isIsDebug() || context == null) {
+        if (!LogConstants.getInstance().isIsDebug() || context == null) {
             return;
         }
         try {
@@ -83,17 +83,15 @@ public class WriteLog {
 
 
     public static void writeLogs(String logString) {
-        if (!LogConstants.isIsDebug()) {
+        if (!LogConstants.getInstance().isIsDebug()) {
             return;
         }
         if (stringBuilder == null) return;
         if (fos2 == null) return;
         try {
             // 先检查备份,暂时不考虑手机容量不够的情况
-            String logFilePath = LogConstants.getDebugFilePath();
-            String backupFilePath = logFilePath.replace(".txt", "backup.log");
-            LogBackupManager logBackupManager = new LogBackupManager(LogConstants.getDebugFilePath(), backupFilePath);
-            logBackupManager.checkAndBackupLogFile();
+
+            LogBackupManager.getInstance().checkAndBackupLogFile();
 
             stringBuilder.setLength(0);
             stringBuilder.append(simpleDateFormat.format(new Date(System.currentTimeMillis())));
@@ -118,7 +116,7 @@ public class WriteLog {
 
     public static void closeStream() {
         try {
-            if (!LogConstants.isIsDebug() || fos2 == null) {
+            if (!LogConstants.getInstance().isIsDebug() || fos2 == null) {
                 return;
             }
             // 释放资源

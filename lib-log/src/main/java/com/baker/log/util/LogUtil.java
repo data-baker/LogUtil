@@ -12,7 +12,7 @@ public class LogUtil {
 
     public static void openLogUtilStream(Context context) {
         String debugPath = context.getFilesDir().getAbsolutePath() + File.separator + "log.txt";
-        LogConstants.setDebugFilePath(debugPath);
+        LogConstants.getInstance().setDebugFilePath(debugPath);
         WriteLog.openStream(context, debugPath);
     }
 
@@ -94,7 +94,7 @@ public class LogUtil {
     private static void e(StackTraceElement[] sElements, String tag, String message) {
         String logMessage = getMethodNames(sElements, message);
         Log.e(tag, logMessage);
-        WriteLog.e(tag, logMessage);
+        WriteLog.w(tag, logMessage);
     }
 
     private static void error(StackTraceElement[] sElements, String tag, String message) {
@@ -106,7 +106,7 @@ public class LogUtil {
     private static final StringBuilder stringBuilder = new StringBuilder();
 
     private static String getMethodNames(StackTraceElement[] sElements, String message) {
-        if (LogConstants.isIsPrintLineMessage()) {
+        if (LogConstants.getInstance().isIsPrintLineMessage()) {
             stringBuilder.setLength(0);
             stringBuilder.append("(").append(TextUtils.isEmpty(sElements[1].getFileName()) ? "null" : sElements[1].getFileName())
                     .append("#").append(TextUtils.isEmpty(sElements[1].getMethodName()) ? "null" : sElements[1].getMethodName())

@@ -2,60 +2,74 @@ package com.baker.log.util;
 
 
 public class LogConstants {
-    private static boolean isDebug = true;
-    private static String debugFilePath = "";
+    private static volatile LogConstants instance;
 
-    private static boolean isPrintLineMessage = true;
+    private LogConstants() {
+    }
 
-    private static String businessType = "bbxnr-sdk-android";
-    private static String appVersion = "1.1.0";
-    private static String appName = "标贝虚拟人";
+    public static LogConstants getInstance() {
+        if (null == instance) {
+            synchronized (LogConstants.class) {
+                if (null == instance) {
+                    instance = new LogConstants();
+                }
+            }
+        }
+        return instance;
+    }
 
-    public static String getAppVersion() {
+    private boolean isDebug = true;
+    private String debugFilePath = "";
+    private boolean isPrintLineMessage = true;
+    private String businessType = "bbxnr-sdk-android";
+    private String appVersion = "1.1.0";
+    private String appName = "标贝虚拟人";
+
+    public String getAppVersion() {
         return appVersion;
     }
 
-    public static void setAppVersion(String appVersion) {
-        LogConstants.appVersion = appVersion;
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
     }
 
-    public static String getAppName() {
+    public String getAppName() {
         return appName;
     }
 
-    public static void setAppName(String appName) {
-        LogConstants.appName = appName;
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
-    public static String getBusinessType() {
+    public String getBusinessType() {
         return businessType;
     }
 
-    public static void setBusinessType(String businessType) {
-        LogConstants.businessType = businessType;
+    public void setBusinessType(String businessType) {
+        this.businessType = businessType;
     }
 
-    public static boolean isIsPrintLineMessage() {
+    public boolean isIsPrintLineMessage() {
         return isPrintLineMessage;
     }
 
-    public static void setPrintLineMessage(boolean isPrintLine) {
+    public void setPrintLineMessage(boolean isPrintLine) {
         isPrintLineMessage = isPrintLine;
     }
 
-    public static boolean isIsDebug() {
+    public boolean isIsDebug() {
         return isDebug;
     }
 
-    public static void setIsDebug(boolean debug) {
+    public void setIsDebug(boolean debug) {
         isDebug = debug;
     }
 
-    public static String getDebugFilePath() {
+    public String getDebugFilePath() {
         return debugFilePath;
     }
 
-    public static void setDebugFilePath(String debugFilePath) {
-        LogConstants.debugFilePath = debugFilePath;
+    public void setDebugFilePath(String debugFilePath) {
+        this.debugFilePath = debugFilePath;
     }
 }
