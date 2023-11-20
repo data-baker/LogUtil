@@ -3,11 +3,9 @@ package com.baker.log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.baker.log.util.ExceptionHandlerUtil;
-import com.baker.log.util.LogConstants;
 import com.baker.log.util.LogUtil;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        LogUtil.error("测试信息");
 
     }
 }
